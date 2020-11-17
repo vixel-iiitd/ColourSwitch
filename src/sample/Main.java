@@ -14,7 +14,7 @@ public class Main extends Application {
     public static MediaPlayer mediaPlayer;
     public static void main(String[] args) {
         launch(args);
-
+        System.out.println("First");
 
     }
 
