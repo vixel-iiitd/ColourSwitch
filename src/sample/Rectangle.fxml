@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="rectangleRoot" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Rectangle">
+   <children>
+      <Line fx:id="l1" endX="100.0" layoutX="490.0" layoutY="140.0" startX="-100.0" stroke="#0cd7da" strokeWidth="15.0" />
+      <Line fx:id="l2" endX="-100.0" endY="166.0" layoutX="490.0" layoutY="140.0" startX="-100.0" stroke="#d300ed" strokeWidth="15.0" />
+      <Line fx:id="l3" endX="100.0" endY="15.0" layoutX="490.0" layoutY="140.0" startX="100.0" startY="166.0" stroke="#ff0ae5" strokeWidth="15.0" />
+      <Line fx:id="l4" endX="83.0" endY="166.0" layoutX="490.0" layoutY="140.0" startX="-101.0" startY="166.0" stroke="#e5f500" strokeWidth="15.0" />
+      <Line endX="3.0" endY="86.0" layoutX="490.0" layoutY="140.0" startX="3.0" startY="86.0" />
+   </children>
+</AnchorPane>

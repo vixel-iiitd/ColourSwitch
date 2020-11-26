@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="TriangleRoot" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Triangle">
+   <children>
+      <Line fx:id="l1" endX="41.0" endY="-70.0" layoutX="450.0" layoutY="116.0" startX="-75.0" startY="116.18629455566406" stroke="#00eeff" strokeLineCap="ROUND" strokeWidth="20.0" />
+      <Line fx:id="l2" endX="185.0" endY="123.0" layoutX="450.0" layoutY="116.0" startX="43.0" startY="-75.0" stroke="#fffb00" strokeLineCap="ROUND" strokeWidth="20.0" />
+      <Line fx:id="l3" endX="186.0" endY="123.686279296875" layoutX="450.0" layoutY="116.0" startX="-76.60659790039062" startY="123.68629455566406" stroke="#ff00c3" strokeLineCap="ROUND" strokeWidth="20.0" />
+   </children>
+</AnchorPane>

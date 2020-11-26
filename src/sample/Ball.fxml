@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane fx:id="ballRoot" onMouseClicked="#play" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BallController">
+   <children>
+      <Circle fx:id="ball" fill="#ffbf00" layoutX="505.0" layoutY="436.0" radius="11.0" stroke="WHITE" strokeType="INSIDE" />
+   </children>
+</AnchorPane>
