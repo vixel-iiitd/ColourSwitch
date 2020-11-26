@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainRoot" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-image: url('C:\Users\RAHUL\IdeaProjects\Colour_Switch2\src\Images\MainPage.jpeg');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
    <children>
-      <ImageView fitHeight="600" fitWidth="1024.0" layoutX="133" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/akin-cakiner-nkUFXi0JSX8-unsplash.jpg" />
+<!--      <Button fx:id="NewGame" layoutX="325.0" layoutY="361.0" onMouseClicked="#startGame" mnemonicParsing="false" opacity="0.0" prefHeight="40.0" prefWidth="371.0" text="New Game" />-->
+<!--      <Button fx:id="ResumeGame" layoutX="334.0" layoutY="418.0" onMouseClicked="#resumeGame" mnemonicParsing="false" opacity="0.0" prefHeight="33.0" prefWidth="360.0" text="Resume Game" />-->
+<!--      <Button fx:id="ExitGame" layoutX="335.0" layoutY="461.0" onMouseClicked="#exitGame" mnemonicParsing="false" opacity="0.0" prefHeight="40.0" prefWidth="360.0" text="Exit" />-->
+
+      <ImageView fitHeight="600.0" fitWidth="1024.0" layoutX="133.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+            <Image url="@../Images/MainPage.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="37.0" fitWidth="369.0" layoutX="329.0" layoutY="415.0" onMouseClicked="#loadGame" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="circle1" fitHeight="46.0" fitWidth="46.0" layoutX="279.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Circle.png" />
+         </image></ImageView>
+      <ImageView fx:id="circle2" fitHeight="46.0" fitWidth="46.0" layoutX="368.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Circle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="circle3" fitHeight="230.0" fitWidth="237.0" layoutX="394.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Circle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="circle4" fitHeight="166.0" fitWidth="166.0" layoutX="426.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Circle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="circle5" fitHeight="116.0" fitWidth="128.0" layoutX="451.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Circle.png" />
+         </image>
+      </ImageView>
+      <Label text="Label" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="playIcon" fitHeight="96.0" fitWidth="89.0" layoutX="465.0" layoutY="190.0" onMouseClicked="#startGame" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/PlayButton.png" />
+         </image></ImageView>
+      <ImageView fx:id="Exit" fitHeight="37.0" fitWidth="369.0" layoutX="328.0" layoutY="466.0" onMouseClicked="#Exit" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="playGame" fitHeight="37.0" fitWidth="369.0" layoutX="328.0" layoutY="364.0" onMouseClicked="#startGame" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

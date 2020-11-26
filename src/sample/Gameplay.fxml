@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="gamePlayRoot" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameplayController">
+   <children>
+      <ImageView fitHeight="624.0" fitWidth="1143.0" layoutX="-39.0" layoutY="10.0" pickOnBounds="true">
+         <image>
+            <Image url="@../Images/background.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pauseButton1" fitHeight="62.0" fitWidth="62.0" layoutX="931.0" layoutY="34.0" onMouseClicked="#pauseGame" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pausebutton.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="58.0" layoutY="34.0" prefHeight="62.0" prefWidth="265.0" text="SCORE : 0" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="45.0" fitWidth="62.0" layoutX="857.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/saveGAME.PNG" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
