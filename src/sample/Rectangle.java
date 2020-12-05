@@ -14,7 +14,7 @@ import java.security.Key;
 import java.sql.Time;
 import java.util.ResourceBundle;
 
-public class Rectangle implements Initializable{
+public class Rectangle extends Obstacle implements Initializable{
 
     @FXML
     private AnchorPane rectangleRoot;
@@ -86,5 +86,10 @@ public class Rectangle implements Initializable{
 
         }
 
+    }
+
+    @Override
+    public boolean checkColor(BallController ball) {
+        return false;
     }
 }

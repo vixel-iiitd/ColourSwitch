@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 
 import javax.swing.text.html.ImageView;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
@@ -44,7 +45,7 @@ public class BallController implements Initializable{
 
 
     @FXML
-    private Circle ball;
+    public Circle ball;
 
     private Color ballColour;
     private int BallSpeed;
@@ -52,7 +53,7 @@ public class BallController implements Initializable{
 
     public void play(MouseEvent event) throws Exception {
         Bounds bounds = ballRoot.getBoundsInLocal();
-
+        ball.setFill(Paint.valueOf("900dffff"));
         KeyValue keyValue1 = new KeyValue(ball.layoutYProperty(),ball.getLayoutY()-65);
         KeyFrame keyFrame1 = new KeyFrame(Duration.millis(200),keyValue1);
 

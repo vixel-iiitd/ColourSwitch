@@ -2,11 +2,14 @@ package sample;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Translate;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -27,6 +30,7 @@ public class Triangle implements Initializable{
 
     @FXML
     private Line l3;
+
 
 
     @Override
@@ -59,6 +63,11 @@ public class Triangle implements Initializable{
     }
 
 
+
+
+
+
+
     private void timeset(Rotate[] r1) {
 
         Rotate r[] = r1;
@@ -82,4 +91,11 @@ public class Triangle implements Initializable{
         }
 
     }
+
+
+
+
+
+
+
 }

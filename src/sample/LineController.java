@@ -16,7 +16,7 @@ import java.security.Key;
 import java.sql.Time;
 import java.util.ResourceBundle;
 
-public class LineController implements Initializable {
+public class LineController extends Obstacle implements Initializable {
 
 
     @FXML
@@ -126,6 +126,9 @@ public class LineController implements Initializable {
     }
 
 
-
+    @Override
+    public boolean checkColor(BallController ball) {
+        return false;
     }
+}
 

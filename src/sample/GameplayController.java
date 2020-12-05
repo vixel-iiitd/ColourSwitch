@@ -1,42 +1,24 @@
 package sample;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
 import javax.swing.text.html.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.transform.Rotate;
-import javafx.stage.Stage;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
-import javafx.scene.*;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.chart.PieChart;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.ResourceBundle;
-import javafx.animation.RotateTransition;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.input.MouseEvent;
+
+import java.util.Random;
 
 
 public class GameplayController {
 
+
+    @FXML
+    AnimationTimer timer;
+
+    double t;
 
     @FXML
     private AnchorPane gamePlayRoot;
@@ -44,6 +26,9 @@ public class GameplayController {
     @FXML
     private ImageView pauseButton;
 
+   Obstacle obstacle;
+
+    BallController ball;
 
     @FXML
     public void pauseGame(MouseEvent event) throws  Exception {
@@ -55,24 +40,61 @@ public class GameplayController {
 
     public void initialize() throws Exception {
 
-        AnchorPane Ballpane = FXMLLoader.load(getClass().getResource("Ball.fxml"));
+
+        FXMLLoader load1 = new FXMLLoader(getClass().getResource("Ball.fxml"));
+
+        AnchorPane Ballpane = load1.load();
+        ball = load1.getController();
+        FXMLLoader load2 = new FXMLLoader(getClass().getResource(getObstacle()));
+
+        AnchorPane ObstaclePane = load2.load();
+        obstacle =load2.getController();
+        gamePlayRoot.getChildren().addAll(ObstaclePane);
         gamePlayRoot.getChildren().addAll(Ballpane);
 
-        AnchorPane ObstaclePane = FXMLLoader.load(getClass().getResource(getObstacle()));
-        gamePlayRoot.getChildren().addAll(ObstaclePane);
 
 
+
+
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                try{
+                    update();
+
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        };
+
+        timer.start();
 
     }
 
 
+    private void update() throws Exception {
+        t+=0.016;
+
+        boolean color=obstacle.checkColor(ball);
+        if(color){
+            AnchorPane pane= FXMLLoader.load(getClass().getResource("GameOver.fxml"));
+            gamePlayRoot.getChildren().setAll(pane);
+        }
+
+        if(t>2){
+            t= 0;
+        }
+    }
+
+    
 
     public int generateRandom(){
         Random random = new Random();
         int r = random.nextInt(4)+1;
 
         return r;
-
     }
 
 
@@ -81,6 +103,8 @@ public class GameplayController {
 
         int k = generateRandom();
 //        System.out.println(k);
+
+        k = 2;
         if (k == 1) {
 
             return "Line.fxml";
@@ -100,6 +124,14 @@ public class GameplayController {
 
 
     }
+
+
+
+    public void moveObject(){
+
+
+    }
+
 
 
 }

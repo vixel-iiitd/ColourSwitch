@@ -19,7 +19,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent mainPage = FXMLLoader.load(getClass().getResource("GameOver.fxml"));
+        Parent mainPage = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
         Scene scene = new Scene(mainPage, 1024, 530);
         primaryStage.setTitle("Color Switch");
         primaryStage.setScene(scene);

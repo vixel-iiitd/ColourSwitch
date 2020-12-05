@@ -5,7 +5,10 @@
 
 <AnchorPane fx:id="circleRoot" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CircleController">
    <children>
-      <Circle fx:id="OuterCircle" fill="DODGERBLUE" layoutX="226.0" layoutY="128.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="InnerCircle" fill="DODGERBLUE" layoutX="226.0" layoutY="128.0" radius="83.0" stroke="BLACK" strokeType="INSIDE" />
+      <Arc fx:id="arc1" fill="#ff038500" layoutX="499.0" layoutY="210.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#ff0385" strokeLineCap="BUTT" strokeWidth="30.0" />
+      <Arc fx:id="arc2" fill="#fae10000" layoutX="499.0" layoutY="210.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="#fae100" strokeLineCap="BUTT" strokeWidth="30.0" />
+      <Arc fx:id="arc3" fill="#32dbf000" layoutX="499.0" layoutY="210.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#32dbf0" strokeLineCap="BUTT" strokeWidth="30.0" />
+      <Arc fx:id="arc4" fill="#900dff00" layoutX="499.0" layoutY="210.0" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#900dff" strokeLineCap="BUTT" strokeWidth="30.0" />
+      <Circle fx:id="InnerCircle" fill="DODGERBLUE" layoutX="499.0" layoutY="210.0" opacity="0.0" radius="85.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
    </children>
 </AnchorPane>
