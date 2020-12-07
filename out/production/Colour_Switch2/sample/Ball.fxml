@@ -5,6 +5,6 @@
 
 <AnchorPane fx:id="ballRoot" onMouseClicked="#play" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BallController">
    <children>
-      <Circle fx:id="ball" fill="#900dff" layoutX="505.0" layoutY="436.0" radius="11.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fx:id="ball" fill="#900dff" layoutX="505.0" layoutY="436.0" radius="11.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>

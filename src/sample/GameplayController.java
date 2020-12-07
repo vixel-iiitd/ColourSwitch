@@ -9,6 +9,7 @@ import javax.swing.text.html.ImageView;
 
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.util.Random;
 
 
@@ -26,7 +27,7 @@ public class GameplayController {
     @FXML
     private ImageView pauseButton;
 
-   Obstacle obstacle;
+//   Obstacle obstacle;
 
     BallController ball;
 
@@ -48,11 +49,9 @@ public class GameplayController {
         FXMLLoader load2 = new FXMLLoader(getClass().getResource(getObstacle()));
 
         AnchorPane ObstaclePane = load2.load();
-        obstacle =load2.getController();
+        newObstacle =load2.getController();
         gamePlayRoot.getChildren().addAll(ObstaclePane);
         gamePlayRoot.getChildren().addAll(Ballpane);
-
-
 
 
 
@@ -74,25 +73,67 @@ public class GameplayController {
     }
 
 
-    private void update() throws Exception {
-        t+=0.016;
+    private double s = 300;
 
-        boolean color=obstacle.checkColor(ball);
-        if(color){
-            AnchorPane pane= FXMLLoader.load(getClass().getResource("GameOver.fxml"));
+    private Obstacle newObstacle;
+    private Obstacle preObstacle;
+
+    private Obstacle generateObstacle() throws IOException {
+        Obstacle obstacle;
+
+        FXMLLoader load2 = new FXMLLoader(getClass().getResource(getObstacle()));
+        AnchorPane ObstaclePane = load2.load();
+        obstacle =load2.getController();
+        gamePlayRoot.getChildren().addAll(ObstaclePane);
+        obstacle.setCenter();
+
+
+        return obstacle;
+
+    }
+
+    private int Count = 0;
+
+    private void update() throws Exception {
+        t += 0.001;
+
+//        System.out.println(ball.ball.getLayoutY());
+
+        boolean color = newObstacle.checkColor(ball);
+        if (color) {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("GameOver.fxml"));
             gamePlayRoot.getChildren().setAll(pane);
         }
 
-        if(t>2){
-            t= 0;
+        if (t > 2) {
+            t = 0;
         }
+
+        if (ball.speed < s) {
+//            System.out.println(ball.speed);
+            newObstacle.movingSpeed(1);
+            if(Count!=0) {
+                preObstacle.movingSpeed(1);
+            }
+
+            s-=1;
+
+        }
+
+//        System.out.print(newObstacle.getCenter() +" ");System.out.println(ball.ball.getLayoutY());
+
+        if(ball.ball.getLayoutY()<newObstacle.getCenter()){
+            preObstacle = newObstacle;
+            newObstacle = generateObstacle();
+            Count=1;
+        }
+
     }
 
-    
 
     public int generateRandom(){
         Random random = new Random();
-        int r = random.nextInt(4)+1;
+        int r = random.nextInt(3)+1;
 
         return r;
     }
@@ -104,8 +145,9 @@ public class GameplayController {
         int k = generateRandom();
 //        System.out.println(k);
 
-        k = 2;
-        if (k == 1) {
+        //k = 5;
+
+        if (k == 6) {
 
             return "Line.fxml";
 
@@ -113,13 +155,22 @@ public class GameplayController {
             return "Circle.fxml";
 
         }
-        else if(k==3){
+        else if(k==7){
             return "Triangle.fxml";
         }
 
-        else{
+        else if(k==4){
 
             return "Rectangle.fxml";
+        }
+        else if(k==1){
+            return "ColourChanger.fxml";
+
+
+        }
+
+        else{
+            return "Star.fxml";
         }
 
 

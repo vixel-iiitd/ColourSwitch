@@ -46,17 +46,12 @@ public class CircleController  extends Obstacle implements Initializable{
     @FXML
     private Circle OuterCircle;
 
-
     @FXML
     private Circle InnerCircle;
-
-
     @FXML
     private Circle rect;
 
-
     private Circle s1;
-
 
     @FXML
     private Arc arc1;
@@ -69,12 +64,24 @@ public class CircleController  extends Obstacle implements Initializable{
     private Arc arc4;
 
 
-
     public void initialize(URL url,ResourceBundle rb) {
-        arc1.setFill(Paint.valueOf("#ff0385ff"));
+//        arc1.setFill(Paint.valueOf("#ff0385ff"));
+//        arc2.setFill(Paint.valueOf("#fae100ff"));
+//        arc3.setFill(Paint.valueOf("#32dbf0ff"));
+//        arc4.setFill(Paint.valueOf("#900dffff"));
+
+       
+
+
+        arc1.setFill(Paint.valueOf("#ff0181ff"));
         arc2.setFill(Paint.valueOf("#fae100ff"));
         arc3.setFill(Paint.valueOf("#32dbf0ff"));
         arc4.setFill(Paint.valueOf("#900dffff"));
+        arc1.setStroke(Paint.valueOf("#ff0181ff"));
+        arc2.setStroke(Paint.valueOf("#fae100ff"));
+        arc3.setStroke(Paint.valueOf("#32dbf0ff"));
+        arc4.setStroke(Paint.valueOf("#900dffff"));
+
 
         Rotate r1 = new Rotate();
         Rotate r2 = new Rotate();
@@ -153,20 +160,24 @@ public class CircleController  extends Obstacle implements Initializable{
         Timeline timeline4 = new Timeline(keyFrame7,keyFrame8);
         timeline4.play();
 
-
-
-
     }
 
 
     @Override
+    public double getCenter() {
+        return arc1.getLayoutY();
+    }
+
+    @Override
     public boolean checkColor(BallController ball) {
 //        ball.ball.setFill(Paint.valueOf("#900dff00"));
-//        arc4.setFill(Paint.valueOf("#900dff00"));
+
         System.out.println(ball.ball.getFill());
-//        System.out.println("arc1 "+arc1.getFill());
-//        System.out.println("arc2 "+arc2.getFill());
-//        System.out.println("arc3 "+arc3.getFill());
+
+
+        System.out.println("arc1 "+arc1.getFill());
+        System.out.println("arc2 "+arc2.getFill());
+        System.out.println("arc3 "+arc3.getFill());
         System.out.println("arc4 "+arc4.getFill());
 
 
@@ -228,5 +239,26 @@ public class CircleController  extends Obstacle implements Initializable{
         }
 //        System.out.println("Chla jaa");
         return false;
+    }
+
+    @Override
+    public void movingSpeed(double speed) {
+        arc1.setLayoutY(arc1.getLayoutY()+speed);
+        arc2.setLayoutY(arc2.getLayoutY()+speed);
+        arc3.setLayoutY(arc3.getLayoutY()+speed);
+        arc4.setLayoutY(arc4.getLayoutY()+speed);
+
+    }
+
+    @Override
+    public void setCenter() {
+
+        arc1.setLayoutY(-50);
+        arc2.setLayoutY(-50);
+        arc3.setLayoutY(-50);
+
+        arc4.setLayoutY(-50);
+
+
     }
 }

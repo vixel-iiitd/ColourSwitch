@@ -7,6 +7,8 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
@@ -46,9 +48,36 @@ public class LineController extends Obstacle implements Initializable {
     @FXML
     private Line l8;
 
+    @FXML
+    private Circle c1;
+
+    @FXML
+    private Circle c2;
+
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        l1.setStroke(Paint.valueOf("#ff0181ff"));
+        l2.setStroke(Paint.valueOf("#fae100ff"));
+        l3.setStroke(Paint.valueOf("#32dbf0ff"));
+        l4.setStroke(Paint.valueOf("#900dffff"));
+
+        l5.setStroke(Paint.valueOf("#ff0181ff"));
+        l6.setStroke(Paint.valueOf("#fae100ff"));
+        l7.setStroke(Paint.valueOf("#32dbf0ff"));
+        l8.setStroke(Paint.valueOf("#900dffff"));
+
+
+
+
+
+
+
+
 
         Line[] l = new Line[8];
         l[0] = l1;
@@ -65,11 +94,9 @@ public class LineController extends Obstacle implements Initializable {
 
 
 
-
-
         for(int i = 0;i<8;i++){
             Rotate r1 = new Rotate();
-            r1.setPivotX(32);
+            r1.setPivotX(36);
             r1.setPivotY(0);
             l[i].getTransforms().add(r1);
 
@@ -127,8 +154,26 @@ public class LineController extends Obstacle implements Initializable {
 
 
     @Override
+    public double getCenter() {
+
+        return c1.getLayoutY();
+    }
+
+    @Override
     public boolean checkColor(BallController ball) {
+
+
         return false;
+    }
+
+    @Override
+    public void movingSpeed(double speed) {
+
+    }
+
+    @Override
+    public void setCenter() {
+
     }
 }
 

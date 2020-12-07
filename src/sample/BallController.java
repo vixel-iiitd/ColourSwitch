@@ -46,44 +46,46 @@ public class BallController implements Initializable{
 
     @FXML
     public Circle ball;
-
+    public double speed=300;
     private Color ballColour;
     private int BallSpeed;
 
 
     public void play(MouseEvent event) throws Exception {
-        Bounds bounds = ballRoot.getBoundsInLocal();
-        ball.setFill(Paint.valueOf("900dffff"));
-        KeyValue keyValue1 = new KeyValue(ball.layoutYProperty(),ball.getLayoutY()-65);
-        KeyFrame keyFrame1 = new KeyFrame(Duration.millis(200),keyValue1);
+       if(ball.getLayoutY()>300) {
+//            speed +=10;
+           Bounds bounds = ballRoot.getBoundsInLocal();
+           KeyValue keyValue1 = new KeyValue(ball.layoutYProperty(), ball.getLayoutY() - 65);
+           KeyFrame keyFrame1 = new KeyFrame(Duration.millis(200), keyValue1);
 
 
-        Timeline t1 = new Timeline(keyFrame1);
-        t1.setCycleCount(1/2);
+           Timeline t1 = new Timeline(keyFrame1);
+           t1.setCycleCount(1 / 2);
 
 
+           KeyValue keyValue2 = new KeyValue(ball.layoutYProperty(), bounds.getMaxY() + ball.getRadius());
+           KeyFrame keyFrame2 = new KeyFrame(Duration.millis(800), keyValue2);
 
-        KeyValue keyValue2 = new KeyValue(ball.layoutYProperty(),bounds.getMaxY()+ ball.getRadius());
-        KeyFrame keyFrame2 = new KeyFrame(Duration.millis(800),keyValue2);
+           Timeline t2 = new Timeline(keyFrame2);
+           t2.setCycleCount(1 / 2);
 
-        Timeline t2 = new Timeline(keyFrame2);
-        t2.setCycleCount(1/2);
+           t1.play();
+           t1.setOnFinished(actionEvent -> t2.play());
 
-        t1.play();
-        t1.setOnFinished(actionEvent -> t2.play());
+
+       }
+       else{
+//           System.out.println("elsehgggggggggggggggggggggggggggggggggggggggggggg   " + speed);
+            speed-=20;
+       }
+
 
     }
 
     public void initialize(URL url,ResourceBundle rb) {
-
-
+       ball.setFill(Paint.valueOf("900dffff"));
 
 
     }
-
-
-
-
-
 
 }

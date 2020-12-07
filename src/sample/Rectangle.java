@@ -5,6 +5,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
@@ -33,6 +34,10 @@ public class Rectangle extends Obstacle implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        l1.setStroke(Paint.valueOf("#900dffff"));
+
+
+
         Rotate r1 = new Rotate();
         Rotate r2 = new Rotate();
         Rotate r3 = new Rotate();
@@ -89,7 +94,69 @@ public class Rectangle extends Obstacle implements Initializable{
     }
 
     @Override
+    public double getCenter() {
+        return 0;
+    }
+
+    @Override
     public boolean checkColor(BallController ball) {
+
+        //System.out.println(ball.ball.getFill());
+
+        if(ball.ball.getFill().equals(l1.getStroke())){
+            if(ball.ball.getBoundsInParent().intersects(l2.getBoundsInParent())||ball.ball.getBoundsInParent().intersects(l3.getBoundsInParent())||ball.ball.getBoundsInParent().intersects(l4.getBoundsInParent())){
+                return true;
+            }
+            else if(ball.ball.getBoundsInParent().intersects(l1.getBoundsInParent())){
+                return false;
+            }
+
+        }
+
+        else if(ball.ball.getFill().equals(l2.getStroke())){
+            if(ball.ball.getBoundsInParent().intersects(l1.getBoundsInParent())||ball.ball.getBoundsInParent().intersects(l3.getBoundsInParent())||ball.ball.getBoundsInParent().intersects(l4.getBoundsInParent())){
+                return true;
+            }
+            else if(ball.ball.getBoundsInParent().intersects(l2.getBoundsInParent())){
+                return false;
+            }
+
+        }
+
+        else if(ball.ball.getFill().equals(l3.getStroke())){
+            if(ball.ball.getBoundsInParent().intersects(l2.getBoundsInParent())||ball.ball.getBoundsInParent().intersects(l1.getBoundsInParent())||ball.ball.getBoundsInParent().intersects(l4.getBoundsInParent())){
+                return true;
+            }
+            else if(ball.ball.getBoundsInParent().intersects(l3.getBoundsInParent())){
+                return false;
+            }
+
+        }
+
+        else if(ball.ball.getFill().equals(l4.getStroke())){
+            if(ball.ball.getBoundsInParent().intersects(l2.getBoundsInParent())||ball.ball.getBoundsInParent().intersects(l3.getBoundsInParent())||ball.ball.getBoundsInParent().intersects(l1.getBoundsInParent())){
+                return true;
+            }
+            else if(ball.ball.getBoundsInParent().intersects(l4.getBoundsInParent())){
+                return false;
+            }
+
+        }
+
+
         return false;
     }
+
+    @Override
+    public void movingSpeed(double speed) {
+
+
+    }
+
+    @Override
+    public void setCenter() {
+
+    }
+
+
 }
