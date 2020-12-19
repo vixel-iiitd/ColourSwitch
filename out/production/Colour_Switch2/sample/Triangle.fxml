@@ -5,8 +5,14 @@
 
 <AnchorPane fx:id="TriangleRoot" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Triangle">
    <children>
-      <Line fx:id="l1" endX="41.0" endY="-70.0" layoutX="450.0" layoutY="116.0" startX="-75.0" startY="116.18629455566406" stroke="#00eeff" strokeLineCap="ROUND" strokeWidth="20.0" />
-      <Line fx:id="l2" endX="185.0" endY="123.0" layoutX="450.0" layoutY="116.0" startX="43.0" startY="-75.0" stroke="#fffb00" strokeLineCap="ROUND" strokeWidth="20.0" />
-      <Line fx:id="l3" endX="186.0" endY="123.686279296875" layoutX="450.0" layoutY="116.0" startX="-76.60659790039062" startY="123.68629455566406" stroke="#ff00c3" strokeLineCap="ROUND" strokeWidth="20.0" />
+      <Line fx:id="l1" endX="41.0" endY="-70.0" layoutX="450.0" layoutY="116.0" startX="-75.0" startY="116.18629455566406" stroke="#900dffff" strokeLineCap="ROUND" strokeWidth="20.0" />
+      <Line fx:id="l2" endX="185.0" endY="123.0" layoutX="450.0" layoutY="116.0" startX="43.0" startY="-75.0" stroke="#32dbf0ff" strokeLineCap="ROUND" strokeWidth="20.0" />
+      <Line fx:id="l3" endX="186.0" endY="123.686279296875" layoutX="450.0" layoutY="116.0" startX="-76.60659790039062" startY="123.68629455566406" stroke="#fae100ff" strokeLineCap="ROUND" strokeWidth="20.0" />
+      <Polygon fx:id="p1" fill="RED" layoutX="470.0" layoutY="168.0" points="53.457244873046875, 35.36288833618164, 34.405338287353516, 24.1364688873291, -27.227787017822266, 74.23664855957031" scaleX="0.5" scaleY="0.5" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" translateX="8.0" translateY="-7.0" />
+
+      <Polygon fx:id="p2" fill="RED" layoutX="470.0" layoutY="168.0" points="22.962894439697266, 34.972042083740234, 40.73414611816406, 23.70468521118164, 94.80603790283203, 76.51898193359375" rotate="-5.0" scaleX="0.5" scaleY="0.5" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" translateX="-8.0" translateY="-9.0" />
+
+      <Polygon fx:id="p3" fill="RED" layoutX="470.0" layoutY="168.0" points="28.261314392089844, 47.11903762817383, 47.29177474975586, 35.71441650390625, 36.79117202758789, -42.973228454589844" scaleX="0.5" scaleY="0.5" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" translateX="-2.0" translateY="10.0" />
+
    </children>
 </AnchorPane>

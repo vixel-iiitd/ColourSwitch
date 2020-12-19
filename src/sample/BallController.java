@@ -4,12 +4,17 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.layout.AnchorPane;
 
+import javax.swing.*;
 import javax.swing.text.html.ImageView;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
@@ -49,43 +54,45 @@ public class BallController implements Initializable{
     public double speed=300;
     private Color ballColour;
     private int BallSpeed;
+    public int Score=0;
+//    private Button button ;
 
+    public void play(ActionEvent event) throws Exception {
+        Media sound = new Media(getClass().getResource("/Music/deadclock.wav").toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(1);
+        mediaPlayer.setStartTime(Duration.seconds(0));
+        mediaPlayer.setStopTime(Duration.seconds(0.01));
+        mediaPlayer.play();
 
-    public void play(MouseEvent event) throws Exception {
-       if(ball.getLayoutY()>300) {
+        if(ball.getLayoutY()>300) {
 //            speed +=10;
            Bounds bounds = ballRoot.getBoundsInLocal();
-           KeyValue keyValue1 = new KeyValue(ball.layoutYProperty(), ball.getLayoutY() - 65);
-           KeyFrame keyFrame1 = new KeyFrame(Duration.millis(200), keyValue1);
+           Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200),
+                   new KeyValue(ball.layoutYProperty(), ball.getLayoutY()-80)));
+           timeline.setCycleCount(1);
 
-
-           Timeline t1 = new Timeline(keyFrame1);
-           t1.setCycleCount(1 / 2);
-
-
-           KeyValue keyValue2 = new KeyValue(ball.layoutYProperty(), bounds.getMaxY() + ball.getRadius());
-           KeyFrame keyFrame2 = new KeyFrame(Duration.millis(800), keyValue2);
-
-           Timeline t2 = new Timeline(keyFrame2);
-           t2.setCycleCount(1 / 2);
-
-           t1.play();
-           t1.setOnFinished(actionEvent -> t2.play());
-
+           Timeline t2 = new Timeline(new KeyFrame(Duration.millis(2000),
+                   new KeyValue(ball.layoutYProperty(), bounds.getMaxY()+ball.getRadius()-50)));
+           t2.setCycleCount(1);
+           timeline.play();
+           timeline.setOnFinished(actionEvent -> t2.play());
 
        }
+
        else{
 //           System.out.println("elsehgggggggggggggggggggggggggggggggggggggggggggg   " + speed);
             speed-=20;
        }
 
-
     }
 
     public void initialize(URL url,ResourceBundle rb) {
-       ball.setFill(Paint.valueOf("900dffff"));
-
+//       ball.setFill(Paint.valueOf("900dffff"));
 
     }
+
+
 
 }

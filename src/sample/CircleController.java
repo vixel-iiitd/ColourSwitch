@@ -9,6 +9,9 @@ import javafx.geometry.Bounds;
 import javafx.scene.layout.AnchorPane;
 
 import javax.swing.text.html.ImageView;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
@@ -39,7 +42,6 @@ import java.util.ResourceBundle;
 
 public class CircleController  extends Obstacle implements Initializable{
 
-
     @FXML
     private AnchorPane circleRoot;
 
@@ -63,6 +65,13 @@ public class CircleController  extends Obstacle implements Initializable{
     @FXML
     private Arc arc4;
 
+    @FXML
+    private Polygon p1;
+
+    @FXML
+    private Polygon p2;
+    @FXML
+    private Polygon p3;
 
     public void initialize(URL url,ResourceBundle rb) {
 //        arc1.setFill(Paint.valueOf("#ff0385ff"));
@@ -73,10 +82,11 @@ public class CircleController  extends Obstacle implements Initializable{
        
 
 
-        arc1.setFill(Paint.valueOf("#ff0181ff"));
-        arc2.setFill(Paint.valueOf("#fae100ff"));
-        arc3.setFill(Paint.valueOf("#32dbf0ff"));
-        arc4.setFill(Paint.valueOf("#900dffff"));
+//        arc1.setFill(Paint.valueOf("#ff0181ff"));
+//        arc2.setFill(Paint.valueOf("#fae100ff"));
+//        arc3.setFill(Paint.valueOf("#32dbf0ff"));
+//        arc4.setFill(Paint.valueOf("#900dffff"));
+        name = "Circle" ;
         arc1.setStroke(Paint.valueOf("#ff0181ff"));
         arc2.setStroke(Paint.valueOf("#fae100ff"));
         arc3.setStroke(Paint.valueOf("#32dbf0ff"));
@@ -121,7 +131,7 @@ public class CircleController  extends Obstacle implements Initializable{
 
 
         KeyValue keyvalue2 = new KeyValue(r1.angleProperty(),32000);
-        KeyFrame keyFrame2 = new KeyFrame(Duration.seconds(1000),keyvalue2);
+        KeyFrame keyFrame2 = new KeyFrame(Duration.seconds(800),keyvalue2);
 
 
         Timeline timeline1 = new Timeline(keyFrame1,keyFrame2);
@@ -132,7 +142,7 @@ public class CircleController  extends Obstacle implements Initializable{
 
 
         KeyValue keyvalue4 = new KeyValue(r2.angleProperty(),32000);
-        KeyFrame keyFrame4 = new KeyFrame(Duration.seconds(1000),keyvalue4);
+        KeyFrame keyFrame4 = new KeyFrame(Duration.seconds(800),keyvalue4);
 
 
         Timeline timeline2 = new Timeline(keyFrame3,keyFrame4);
@@ -143,7 +153,7 @@ public class CircleController  extends Obstacle implements Initializable{
 
 
         KeyValue keyvalue6 = new KeyValue(r3.angleProperty(),32000);
-        KeyFrame keyFrame6 = new KeyFrame(Duration.seconds(1000),keyvalue6);
+        KeyFrame keyFrame6 = new KeyFrame(Duration.seconds(800),keyvalue6);
 
 
         Timeline timeline3 = new Timeline(keyFrame5,keyFrame6);
@@ -154,7 +164,7 @@ public class CircleController  extends Obstacle implements Initializable{
 
 
         KeyValue keyvalue8 = new KeyValue(r4.angleProperty(),32000);
-        KeyFrame keyFrame8 = new KeyFrame(Duration.seconds(1000),keyvalue8);
+        KeyFrame keyFrame8 = new KeyFrame(Duration.seconds(800),keyvalue8);
 
 
         Timeline timeline4 = new Timeline(keyFrame7,keyFrame8);
@@ -170,20 +180,38 @@ public class CircleController  extends Obstacle implements Initializable{
 
     @Override
     public boolean checkColor(BallController ball) {
+
+        if(p1.getBoundsInParent().intersects(ball.ball.getBoundsInParent()) || p2.getBoundsInParent().intersects(ball.ball.getBoundsInParent())  || p3.getBoundsInParent().intersects(ball.ball.getBoundsInParent())){
+            p1.setLayoutY(-500);
+            p2.setLayoutY(-500);
+            p3.setLayoutY(-500);
+            ball.Score++;
+            Media sound = new Media(getClass().getResource("/Music/Star.wav").toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.setAutoPlay(true);
+            mediaPlayer.setCycleCount(1);
+            mediaPlayer.setStartTime(Duration.seconds(0));
+            mediaPlayer.setStopTime(Duration.seconds(0.15));
+            mediaPlayer.play();
+//            System.out.print(ball.Score);
+        }
+
+
+
+
 //        ball.ball.setFill(Paint.valueOf("#900dff00"));
 
-        System.out.println(ball.ball.getFill());
+//        System.out.println(ball.ball.getFill());
+
+//        System.out.println("arc1 "+arc1.getFill());
+//        System.out.println("arc2 "+arc2.getFill());
+//        System.out.println("arc3 "+arc3.getFill());
+//        System.out.println("arc4 "+arc4.getFill());
 
 
-        System.out.println("arc1 "+arc1.getFill());
-        System.out.println("arc2 "+arc2.getFill());
-        System.out.println("arc3 "+arc3.getFill());
-        System.out.println("arc4 "+arc4.getFill());
 
-
-
-        if (ball.ball.getFill().equals(arc1.getFill())) {
-            System.out.println("here1");
+        if (ball.ball.getFill().equals(arc1.getStroke())) {
+//            System.out.println("here1");
             if ((InnerCircle.getBoundsInParent().intersects(ball.ball.getBoundsInParent()))) {
                 return false;
             } else {
@@ -194,8 +222,8 @@ public class CircleController  extends Obstacle implements Initializable{
                 } else return false;
 
             }
-        } else if (ball.ball.getFill().equals(arc2.getFill())) {
-            System.out.println("here2");
+        } else if (ball.ball.getFill().equals(arc2.getStroke())) {
+//            System.out.println("here2");
             if ((InnerCircle.getBoundsInParent().intersects(ball.ball.getBoundsInParent()))) {
                 return false;
             } else {
@@ -204,8 +232,8 @@ public class CircleController  extends Obstacle implements Initializable{
                 } else return false;
 
             }
-        } else if (ball.ball.getFill().equals(arc3.getFill())) {
-            System.out.println("here3");
+        } else if (ball.ball.getFill().equals(arc3.getStroke())) {
+//            System.out.println("here3");
             if ((InnerCircle.getBoundsInParent().intersects(ball.ball.getBoundsInParent()))) {
                 return false;
             } else {
@@ -216,7 +244,8 @@ public class CircleController  extends Obstacle implements Initializable{
                 } else return false;
 
             }
-        } else if (ball.ball.getFill().equals(arc4.getFill())) {
+
+        } else if (ball.ball.getFill().equals(arc4.getStroke())) {
 //            System.out.println("here4a");
             if ((InnerCircle.getBoundsInParent().intersects(ball.ball.getBoundsInParent()))) {
                 {
@@ -241,24 +270,61 @@ public class CircleController  extends Obstacle implements Initializable{
         return false;
     }
 
+
+
     @Override
     public void movingSpeed(double speed) {
         arc1.setLayoutY(arc1.getLayoutY()+speed);
         arc2.setLayoutY(arc2.getLayoutY()+speed);
         arc3.setLayoutY(arc3.getLayoutY()+speed);
         arc4.setLayoutY(arc4.getLayoutY()+speed);
-
+        InnerCircle.setLayoutY(InnerCircle.getLayoutY()+speed);
+        p1.setLayoutY(p1.getLayoutY()+speed);
+        p2.setLayoutY(p2.getLayoutY()+speed);
+        p3.setLayoutY(p3.getLayoutY()+speed);
     }
 
     @Override
     public void setCenter() {
 
-        arc1.setLayoutY(-50);
-        arc2.setLayoutY(-50);
-        arc3.setLayoutY(-50);
-
-        arc4.setLayoutY(-50);
+        arc1.setLayoutY(-250);
+        arc2.setLayoutY(-250);
+        arc3.setLayoutY(-250);
+        InnerCircle.setLayoutY(-250);
+        arc4.setLayoutY(-250);
+        p1.setLayoutY(-280);
+        p2.setLayoutY(-280);
+        p3.setLayoutY(-280);
 
 
     }
+    @Override
+    public void setCenter2(double k) {
+
+        arc1.setLayoutY(k);
+        arc2.setLayoutY(k);
+        arc3.setLayoutY(k);
+        InnerCircle.setLayoutY(k);
+        arc4.setLayoutY(k);
+        p1.setLayoutY(k-30);
+        p2.setLayoutY(k-30);
+        p3.setLayoutY(k-30);
+
+
+    }
+    @Override
+    public void setCenter3() {
+        double k = -1000;
+        arc1.setLayoutY(k);
+        arc2.setLayoutY(k);
+        arc3.setLayoutY(k);
+        InnerCircle.setLayoutY(k);
+        arc4.setLayoutY(k);
+        p1.setLayoutY(k-30);
+        p2.setLayoutY(k-30);
+        p3.setLayoutY(k-30);
+
+
+    }
+
 }

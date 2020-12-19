@@ -16,6 +16,11 @@
       <Line fx:id="l7" endX="37.0" layoutX="592.0" layoutY="192.0" startX="37.0" startY="-112.0" stroke="#ff0181" strokeLineCap="ROUND" strokeWidth="15.0" />
       <Line fx:id="l8" endX="36.5" layoutX="592.0" layoutY="192.0" startX="148.0" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="15.0" />
       <Circle fx:id="c2" fill="#1c1f22" layoutX="629.0" layoutY="192.0" radius="12.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fx:id="p1" fill="RED" layoutX="470.0" layoutY="168.0" points="53.457244873046875, 35.36288833618164, 34.405338287353516, 24.1364688873291, -27.227787017822266, 74.23664855957031" scaleX="0.5" scaleY="0.5" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" translateX="8.0" translateY="-7.0" />
+
+      <Polygon fx:id="p2" fill="RED" layoutX="470.0" layoutY="168.0" points="22.962894439697266, 34.972042083740234, 40.73414611816406, 23.70468521118164, 94.80603790283203, 76.51898193359375" rotate="-5.0" scaleX="0.5" scaleY="0.5" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" translateX="-8.0" translateY="-9.0" />
+
+      <Polygon fx:id="p3" fill="RED" layoutX="470.0" layoutY="168.0" points="28.261314392089844, 47.11903762817383, 47.29177474975586, 35.71441650390625, 36.79117202758789, -42.973228454589844" scaleX="0.5" scaleY="0.5" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" translateX="-2.0" translateY="10.0" />
 
 
    </children>

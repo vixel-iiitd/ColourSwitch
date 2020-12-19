@@ -9,16 +9,21 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.animation.RotateTransition;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
-public class MainController implements Initializable {
+public class MainController  {
     @FXML
     private AnchorPane mainRoot;
 
@@ -50,8 +55,33 @@ public class MainController implements Initializable {
         System.exit(0);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize() throws Exception{
+        File file = new File("SavedGames.txt");
+
+        if(!file.exists()){
+            System.out.println("WOAHHHHHHHHHHHHHHHHHHHH");
+            ArrayList<EachGameData> arr = new ArrayList<>();
+            DataBase oj = new DataBase(arr);
+            ObjectOutputStream out = null;
+            try {
+                out = new ObjectOutputStream (new FileOutputStream("SavedGames.txt"));
+                out.writeObject(oj);
+            }
+            finally {
+                out.close();
+            }
+        }
+
+
+        Media sound = new Media(getClass().getResource("/Music/Main.mp3").toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.setStartTime(Duration.seconds(0));
+        mediaPlayer.setStopTime(Duration.seconds(50));
+        mediaPlayer.play();
+
+
         RotateTransition transition1 = new RotateTransition(Duration.seconds(500),circle1);
         transition1.setByAngle(360000);
         transition1.play();
@@ -59,6 +89,7 @@ public class MainController implements Initializable {
         RotateTransition transition2 = new RotateTransition(Duration.seconds(500),circle2);
         transition2.setByAngle(-360000);
         transition2.play();
+
 
         RotateTransition transition3 = new RotateTransition(Duration.seconds(500),circle3);
 
@@ -83,6 +114,14 @@ public class MainController implements Initializable {
     
     @FXML
     void startGame(MouseEvent event) throws Exception {
+        Media sound = new Media(getClass().getResource("/Music/Button.wav").toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(1);
+        mediaPlayer.setStartTime(Duration.seconds(0));
+        mediaPlayer.setStopTime(Duration.seconds(0.15));
+        mediaPlayer.play();
+
         AnchorPane pane = FXMLLoader.load((getClass().getResource("Gameplay.fxml")));
         mainRoot.getChildren().setAll(pane);
     }
@@ -90,12 +129,28 @@ public class MainController implements Initializable {
 
     @FXML
     void loadGame(MouseEvent event) throws Exception {
+
+        Media sound = new Media(getClass().getResource("/Music/Button.wav").toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(1);
+        mediaPlayer.setStartTime(Duration.seconds(0));
+        mediaPlayer.setStopTime(Duration.seconds(0.15));
+        mediaPlayer.play();
         AnchorPane pane = FXMLLoader.load(getClass().getResource("loadGames.fxml"));
         mainRoot.getChildren().setAll(pane);
     }
 
     @FXML
     void Exit(MouseEvent event) throws Exception{
+
+        Media sound = new Media(getClass().getResource("/Music/Button.wav").toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(1);
+        mediaPlayer.setStartTime(Duration.seconds(0));
+        mediaPlayer.setStopTime(Duration.seconds(0.15));
+        mediaPlayer.play();
         Stage stage = (Stage) Exit.getScene().getWindow();
         stage.close();
     }

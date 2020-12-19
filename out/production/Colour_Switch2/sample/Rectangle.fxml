@@ -5,10 +5,17 @@
 
 <AnchorPane fx:id="rectangleRoot" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Rectangle">
    <children>
-      <Line fx:id="l1" endX="100.0" layoutX="490.0" layoutY="140.0" startX="-100.0" stroke="#900dffff" strokeWidth="15.0" />
-      <Line fx:id="l2" endX="-100.0" endY="166.0" layoutX="490.0" layoutY="140.0" startX="-100.0" stroke="#ff0181" strokeWidth="15.0" />
-      <Line fx:id="l3" endX="100.0" endY="15.0" layoutX="490.0" layoutY="140.0" startX="100.0" startY="166.0" stroke="#32dbf0" strokeWidth="15.0" />
-      <Line fx:id="l4" endX="83.0" endY="166.0" layoutX="490.0" layoutY="140.0" startX="-101.0" startY="166.0" stroke="#fae100" strokeWidth="15.0" />
-      <Line endX="3.0" endY="86.0" layoutX="490.0" layoutY="140.0" startX="3.0" startY="86.0" />
+      <Line fx:id="l1" endX="100.0" fill="#900dff" layoutX="490.0" layoutY="140.0" startX="-68.0" stroke="#900dffff" strokeLineCap="ROUND" strokeWidth="15.0" />
+      <Line fx:id="l2" endX="-68.0" endY="166.0" fill="#ff0181" layoutX="490.0" layoutY="140.0" startX="-68.0" stroke="#ff0181" strokeLineCap="ROUND" strokeWidth="15.0" />
+      <Line fx:id="l4" endX="99.0" endY="167.0" fill="#fae100" layoutX="490.0" layoutY="140.0" startX="-69.0" startY="167.0" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="15.0" />
+      <Line fx:id="l3" endX="100.0" fill="#32dbf0" layoutX="490.0" layoutY="140.0" startX="101.0" startY="168.0" stroke="#32dbf0" strokeLineCap="ROUND" strokeWidth="15.0" />
+<!--      <Line endX="18.0" endY="88.0" layoutX="490.0" layoutY="140.0" startX="18.0" startY="88.0" />-->
+<!--      <Line endX="3.0" endY="86.0" layoutX="490.0" layoutY="140.0" startX="3.0" startY="86.0" />-->
+      <Polygon fx:id="p1" fill="RED" layoutX="470.0" layoutY="200.0" points="53.457244873046875, 35.36288833618164, 34.405338287353516, 24.1364688873291, -27.227787017822266, 74.23664855957031" scaleX="0.5" scaleY="0.5" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" translateX="8.0" translateY="-7.0" />
+
+      <Polygon fx:id="p2" fill="RED" layoutX="470.0" layoutY="200.0" points="22.962894439697266, 34.972042083740234, 40.73414611816406, 23.70468521118164, 94.80603790283203, 76.51898193359375" rotate="-5.0" scaleX="0.5" scaleY="0.5" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" translateX="-8.0" translateY="-9.0" />
+
+      <Polygon fx:id="p3" fill="RED" layoutX="470.0" layoutY="200.0" points="28.261314392089844, 47.11903762817383, 47.29177474975586, 35.71441650390625, 36.79117202758789, -42.973228454589844" scaleX="0.5" scaleY="0.5" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" translateX="-2.0" translateY="10.0" />
+
    </children>
 </AnchorPane>

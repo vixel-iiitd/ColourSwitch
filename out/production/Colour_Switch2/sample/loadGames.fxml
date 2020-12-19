@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -11,7 +12,17 @@
          </image>
       </ImageView>
       <ImageView fitHeight="54.0" fitWidth="464.0" layoutX="271.0" layoutY="443.0" onMouseClicked="#ExitToMainMenu" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="G1" layoutX="117.0" layoutY="116.0" prefHeight="47.0" prefWidth="791.0" />
+      <ImageView fx:id="Game1" fitHeight="47.0" fitWidth="797.0" layoutX="114.0" layoutY="116.0" onMouseClicked="#getnum1" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="G2" layoutX="116.0" layoutY="167.0" prefHeight="47.0" prefWidth="803.0" />
+      <ImageView fx:id="Game2" fitHeight="37.0" fitWidth="803.0" layoutX="114.0" layoutY="171.0" onMouseClicked="#getnum2" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="G3" layoutX="117.0" layoutY="214.0" prefHeight="47.0" prefWidth="797.0" />
+      <ImageView fx:id="Game3" fitHeight="37.0" fitWidth="797.0" layoutX="112.0" layoutY="221.0" onMouseClicked="#getnum3" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="G4" layoutX="117.0" layoutY="271.0" prefHeight="37.0" prefWidth="797.0" />
+      <ImageView fx:id="Game4" fitHeight="37.0" fitWidth="803.0" layoutX="112.0" layoutY="272.0" onMouseClicked="#getnum4" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="G5" layoutX="114.0" layoutY="320.0" prefHeight="37.0" prefWidth="797.0" />
+      <ImageView fx:id="Game5" fitHeight="37.0" fitWidth="803.0" layoutX="112.0" layoutY="320.0" onMouseClicked="#getnum5" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="delete" fitHeight="54.0" fitWidth="470.0" layoutX="271.0" layoutY="381.0" onMouseClicked="#Delete" pickOnBounds="true" preserveRatio="true" />
+
    </children>
 </AnchorPane>
-
-

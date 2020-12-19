@@ -3,8 +3,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
+<?import javafx.scene.control.Button?>
 <AnchorPane fx:id="ballRoot" onMouseClicked="#play" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BallController">
    <children>
       <Circle fx:id="ball" fill="#900dff" layoutX="505.0" layoutY="436.0" radius="11.0" stroke="#900dff" strokeType="INSIDE" strokeWidth="0.0" />
+      <Button layoutX="699.0" layoutY="554.0" mnemonicParsing="false" onAction="#play" opacity="0.0" text="Press any key" />
    </children>
 </AnchorPane>
